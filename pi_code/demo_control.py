@@ -151,6 +151,9 @@ def start_retargeting(queue: multiprocessing.Queue, pc_queue: multiprocessing.Qu
                 origin_indices = indices[0, :]
                 task_indices = indices[1, :]
                 ref_value = joint_pos[task_indices, :] - joint_pos[origin_indices, :]
+            print(f"indices:{indices}")
+            print(f"ref_value:{ref_value.shape}")
+            print(f"ref_value:{ref_value}")
             qpos = retargeting.retarget(ref_value)
             
             
@@ -159,7 +162,7 @@ def start_retargeting(queue: multiprocessing.Queue, pc_queue: multiprocessing.Qu
             # robot_pose.set_rpy([0, 1, 0])
             robot_pose = sapien.Pose(transform_matrix)
             # robot_pose.p[2] += 1
-            robot.set_pose(robot_pose)
+            # robot.set_pose(robot_pose)
             
             
             # x += 0.1

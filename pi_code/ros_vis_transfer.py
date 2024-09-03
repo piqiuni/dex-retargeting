@@ -85,28 +85,28 @@ def main():
     
     
     
-    # 定义 camera_link 到 hand_link 的坐标系变换
-    static_transformStamped2 = geometry_msgs.msg.TransformStamped()
-    static_transformStamped2.header.stamp = rospy.Time.now()
-    static_transformStamped2.header.frame_id = "camera_link"
-    static_transformStamped2.child_frame_id = "hand_link"
+    # # 定义 camera_link 到 hand_link 的坐标系变换
+    # static_transformStamped2 = geometry_msgs.msg.TransformStamped()
+    # static_transformStamped2.header.stamp = rospy.Time.now()
+    # static_transformStamped2.header.frame_id = "camera_link"
+    # static_transformStamped2.child_frame_id = "hand_link"
 
-    # 设置 camera_link 到 hand_link 的位置和姿态
-    static_transformStamped2.transform.translation.x = 0.0
-    static_transformStamped2.transform.translation.y = 0.0
-    static_transformStamped2.transform.translation.z = 1
-    roll2 = 0.1
-    yaw2 = 0.2
-    pitch2 = 0.3
-    quat2 = tf.transformations.quaternion_from_euler(roll2, yaw2, pitch2)
-    static_transformStamped2.transform.rotation.x = quat2[0]
-    static_transformStamped2.transform.rotation.y = quat2[1]
-    static_transformStamped2.transform.rotation.z = quat2[2]
-    static_transformStamped2.transform.rotation.w = quat2[3]
+    # # 设置 camera_link 到 hand_link 的位置和姿态
+    # static_transformStamped2.transform.translation.x = 0.0
+    # static_transformStamped2.transform.translation.y = 0.0
+    # static_transformStamped2.transform.translation.z = 1
+    # roll2 = 0.1
+    # yaw2 = 0.2
+    # pitch2 = 0.3
+    # quat2 = tf.transformations.quaternion_from_euler(roll2, yaw2, pitch2)
+    # static_transformStamped2.transform.rotation.x = quat2[0]
+    # static_transformStamped2.transform.rotation.y = quat2[1]
+    # static_transformStamped2.transform.rotation.z = quat2[2]
+    # static_transformStamped2.transform.rotation.w = quat2[3]
     
     
     
-    broadcaster.sendTransform(static_transformStamped2)
+    # broadcaster.sendTransform(static_transformStamped2)
     
     
     

@@ -159,25 +159,23 @@ class MultiHandDetector(SingleHandDetector):
         self.R_left_hand = tf.transformations.euler_matrix(*self.left_hand_orientation)[:3, :3]
         self.R_right_hand = tf.transformations.euler_matrix(*self.right_hand_orientation)[:3, :3]
         self.R_left_hand_cam = tf.transformations.euler_matrix(0, 0, np.pi)[:3, :3]
-        self.R_right_hand_cam = tf.transformations.euler_matrix(0, 0, np.pi)[:3, :3]
+        self.R_right_hand_cam = tf.transformations.euler_matrix(0, np.pi, np.pi)[:3, :3]
         
     
     def transfer_hand(self, hand_type, hand_angle):
-        hand_angle = [0,0,0]
-        R_object = tf.transformations.euler_matrix(hand_angle[0], hand_angle[1], hand_angle[2])[:3, :3]
+        # hand_angle = [0,0,0]
+        print(f"hand_angle: {hand_angle}")
         if hand_type == 'Left':
             R_hand = self.R_left_hand
             R_hand_cam = self.R_left_hand_cam
         elif hand_type == 'Right':
-            R_object = tf.transformations.euler_matrix(-hand_angle[0], -hand_angle[1], -hand_angle[2])[:3, :3]
+            hand_angle[2] = -(hand_angle[2] - np.pi/2) + np.pi/2
+            
             R_hand = self.R_right_hand
             R_hand_cam = self.R_right_hand_cam
-            # R_hand_cam[0, 0] = -1.0
-            # R_hand_cam[1, 1] = -1.0
-            # R_hand_cam[2, 2] = -1.0
-            # R_hand_cam[0, 1] = -R_hand_cam[0, 1]
             R_hand_cam[1, 0] = -R_hand_cam[1, 0]
-            print(R_hand_cam)
+            # print(R_hand_cam)
+        R_object = tf.transformations.euler_matrix(hand_angle[0], hand_angle[1], hand_angle[2])[:3, :3]
         
         # R_hand_ground = np.dot(R_hand, R_object)
         R_hand_ground = np.dot(R_object, R_hand)
@@ -326,6 +324,7 @@ class MultiHandDetector(SingleHandDetector):
                 logger.warning(f"Right Hand too close to the Cam.")
             else:
                 self.right_hand.wirst_cam_coord = right_wirst_cam_coord
+                self.right_hand.wirst_world_coord = self.transfer_point(right_wirst_cam_coord)
             print(f"RWrist_cc: {right_wirst_cam_coord}") 
             
             
