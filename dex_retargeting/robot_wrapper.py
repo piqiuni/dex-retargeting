@@ -14,7 +14,7 @@ class RobotWrapper:
         # Create robot model and data
         self.model: pin.Model = pin.buildModelFromUrdf(urdf_path)
         self.data: pin.Data = self.model.createData()
-
+        
         if use_visual or use_collision:
             raise NotImplementedError
 

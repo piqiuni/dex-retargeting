@@ -147,7 +147,6 @@ class RetargetingConfig:
             DexPilotOptimizer,
         )
         import tempfile
-
         # Process the URDF with yourdfpy to better find file path
         robot_urdf = urdf.URDF.load(
             self.urdf_path, add_dummy_free_joints=self.add_dummy_free_joint, build_scene_graph=False

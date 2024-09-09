@@ -1,4 +1,5 @@
 import multiprocessing
+import os
 import time
 from pathlib import Path
 from queue import Empty
@@ -82,7 +83,6 @@ def start_retargeting(queue: multiprocessing.Queue, pc_queue: multiprocessing.Qu
         filepath = str(filepath).replace(".urdf", "_glb.urdf")
     else:
         filepath = str(filepath)
-
     robot = loader.load(filepath)
 
     if "ability" in robot_name:
@@ -162,7 +162,7 @@ def start_retargeting(queue: multiprocessing.Queue, pc_queue: multiprocessing.Qu
             # robot_pose.set_rpy([0, 1, 0])
             robot_pose = sapien.Pose(transform_matrix)
             # robot_pose.p[2] += 1
-            # robot.set_pose(robot_pose)
+            robot.set_pose(robot_pose)
             
             
             # x += 0.1

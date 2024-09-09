@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<robot name="a1arm">
+  <disable_collisions link1="arm_seg4" link2="arm_seg5" reason="Adjacent"/>
+  <disable_collisions link1="arm_seg5" link2="arm_seg6" reason="Adjacent"/>
+  <disable_collisions link1="arm_seg1" link2="arm_seg2" reason="Adjacent"/>
+  <disable_collisions link1="arm_seg6" link2="gripper2" reason="Adjacent"/>
+  <disable_collisions link1="arm_seg2" link2="arm_seg3" reason="Adjacent"/>
+  <disable_collisions link1="arm_seg6" link2="gripper1" reason="Adjacent"/>
+  <disable_collisions link1="arm_seg6" link2="arm_segee" reason="Adjacent"/>
+  <disable_collisions link1="arm_base" link2="arm_seg1" reason="Adjacent"/>
+  <disable_collisions link1="arm_seg3" link2="arm_seg4" reason="Adjacent"/>
+  <disable_collisions link1="gripper1" link2="gripper2" reason="Default"/>
+  <disable_collisions link1="arm_base" link2="arm_seg2" reason="Never"/>
+  <disable_collisions link1="arm_base" link2="arm_seg3" reason="Never"/>
+  <disable_collisions link1="arm_base" link2="arm_segee" reason="Never"/>
+  <disable_collisions link1="arm_seg1" link2="arm_seg3" reason="Never"/>
+  <disable_collisions link1="arm_seg1" link2="arm_seg4" reason="Never"/>
+  <disable_collisions link1="arm_seg1" link2="arm_segee" reason="Never"/>
+  <disable_collisions link1="arm_seg2" link2="arm_segee" reason="Never"/>
+  <disable_collisions link1="arm_seg3" link2="arm_seg5" reason="Never"/>
+  <disable_collisions link1="arm_seg3" link2="arm_seg6" reason="Never"/>
+  <disable_collisions link1="arm_seg3" link2="arm_segee" reason="Never"/>
+  <disable_collisions link1="arm_seg3" link2="gripper1" reason="Never"/>
+  <disable_collisions link1="arm_seg3" link2="gripper2" reason="Never"/>
+  <disable_collisions link1="arm_seg4" link2="arm_seg6" reason="Never"/>
+  <disable_collisions link1="arm_seg4" link2="arm_segee" reason="Never"/>
+  <disable_collisions link1="arm_seg4" link2="gripper1" reason="Never"/>
+  <disable_collisions link1="arm_seg4" link2="gripper2" reason="Never"/>
+  <disable_collisions link1="arm_seg5" link2="arm_segee" reason="Never"/>
+  <disable_collisions link1="arm_seg5" link2="gripper1" reason="Never"/>
+  <disable_collisions link1="arm_seg5" link2="gripper2" reason="Never"/>
+  <disable_collisions link1="arm_segee" link2="gripper1" reason="Never"/>
+  <disable_collisions link1="arm_segee" link2="gripper2" reason="Never"/>
+</robot>
